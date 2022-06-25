@@ -1,6 +1,6 @@
 # movies
 
-CREATE TABLE movie
+CREATE TABLE mymovie
 (NAME VARCHAR(20) PRIMARY KEY,
 ACTOR VARCHAR(15),
 ACTRESS VARCHAR(15),
@@ -8,21 +8,19 @@ DIRECTOR VARCHAR(15),
 YEAROFRELEASE INT(4)
 );
 
-INSERT INTO movie (NAME, ACTOR, ACTRESS, DIRECTOR, YEAROFRELEASE) VALUES ('Inception', 'Leo DiCaprio', 'Talulah Riley', 'C. Nolan', 2010);
-INSERT INTO movie (NAME, ACTOR, ACTRESS, DIRECTOR, YEAROFRELEASE) VALUES ('The Dark Knight', 'Christian Bale', 'M. Gyllenhaal', 'C. Nolan', 2008);
-INSERT INTO movie (NAME, ACTOR, ACTRESS, DIRECTOR, YEAROFRELEASE) VALUES ('Titanic', 'Leo DiCaprio', 'Kate Winslet', 'James Cameron', 1997);
-INSERT INTO movie (NAME, ACTOR, ACTRESS, DIRECTOR, YEAROFRELEASE) VALUES ('Top Gun', 'Tom Cruise', 'Kelley McGillis', 'Jon Favreau', 1986);
-INSERT INTO movie (NAME, ACTOR, ACTRESS, DIRECTOR, YEAROFRELEASE) VALUES ('Iron Man', 'Robert Downey', 'Gwyneth P', 'Jon Favreau', 2008);
+INSERT INTO mymovie (NAME, ACTOR, ACTRESS, DIRECTOR, YEAROFRELEASE) VALUES ('Inception', 'Leo DiCaprio', 'Talulah Riley', 'C. Nolan', 2010);
+INSERT INTO mymovie (NAME, ACTOR, ACTRESS, DIRECTOR, YEAROFRELEASE) VALUES ('The Dark Knight', 'Christian Bale', 'M. Gyllenhaal', 'C. Nolan', 2008);
+INSERT INTO mymovie (NAME, ACTOR, ACTRESS, DIRECTOR, YEAROFRELEASE) VALUES ('Titanic', 'Leo DiCaprio', 'Kate Winslet', 'James Cameron', 1997);
+INSERT INTO mymovie (NAME, ACTOR, ACTRESS, DIRECTOR, YEAROFRELEASE) VALUES ('Top Gun', 'Tom Cruise', 'Kelley McGillis', 'Jon Favreau', 1986);
+INSERT INTO mymovie (NAME, ACTOR, ACTRESS, DIRECTOR, YEAROFRELEASE) VALUES ('Iron Man', 'Robert Downey', 'Gwyneth P', 'Jon Favreau', 2008);
 
-// Queries
+SELECT * FROM mymovie;
+SELECT NAME, ACTOR, ACTRESS, DIRECTOR, YEAROFRELEASE FROM mymovie;
 
-SELECT * FROM movie;
-SELECT NAME, ACTOR, ACTRESS, DIRECTOR, YEAROFRELEASE FROM movie;
-
-SELECT NAME, ACTOR, ACTRESS, DIRECTOR, YEAROFRELEASE FROM movie
+SELECT NAME, ACTOR, ACTRESS, DIRECTOR, YEAROFRELEASE FROM mymovie
 Where ACTOR = "Christian Bale";
 
-SELECT NAME, ACTOR, ACTRESS, DIRECTOR, YEAROFRELEASE FROM movie
+SELECT NAME, ACTOR, ACTRESS, DIRECTOR, YEAROFRELEASE FROM mymovie
 Where ACTOR = "Leo DiCaprio"
 ORDER BY YEAROFRELEASE;
 
@@ -37,9 +35,9 @@ public static void main(String[] args)
  try
 {
 Class.forName("java.sql.Driver");
-Connection con=DriverManager.getConnection("jdbc:mysql://localhost/movies","root","student");
+Connection con=DriverManager.getConnection("jdbc:mysql://localhost/mymovies","root","student");
 Statement stmt=con.createStatement();
-String query="select name,actor,actress,director,yearofrelease from movie where actor="Christian Bale";
+String query="select name,actor,actress,director,yearofrelease from mymovie where actor="Christian Bale";
 
 ResultSet rs=stmt.executeQuery(query);
 
